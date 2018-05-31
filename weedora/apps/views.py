@@ -3,7 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from weedora.apps.serializers import UserSerializer, GroupSerializer
+
+from weedora.apps.models import Product
+from weedora.apps.serializers import UserSerializer, GroupSerializer, ProductSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,3 +22,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
